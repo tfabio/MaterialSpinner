@@ -316,7 +316,7 @@ public class MaterialSpinner extends TextView {
       selectedIndex = bundle.getInt("selected_index");
       nothingSelected = bundle.getBoolean("nothing_selected");
       if (adapter != null) {
-        if (nothingSelected && !TextUtils.isEmpty(hintText)) {
+        if (nothingSelected && !TextUtils.isEmpty(hintText) || selectedIndex >= adapter.getCount() ) {
           setHintColor(hintColor);
           setText(hintText);
         } else {
@@ -411,6 +411,14 @@ public class MaterialSpinner extends TextView {
         .setPopupPadding(popupPaddingLeft, popupPaddingTop, popupPaddingRight, popupPaddingBottom)
         .setBackgroundSelector(backgroundSelector)
         .setTextColor(textColor);
+    setAdapterInternal(adapter);
+  }
+
+  public <T> void setItems(@NonNull MaterialSpinnerAdapter materialSpinnerAdapter) {
+    adapter = materialSpinnerAdapter
+            .setPopupPadding(popupPaddingLeft, popupPaddingTop, popupPaddingRight, popupPaddingBottom)
+            .setBackgroundSelector(backgroundSelector)
+            .setTextColor(textColor);
     setAdapterInternal(adapter);
   }
 

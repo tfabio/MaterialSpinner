@@ -22,7 +22,7 @@ import android.widget.ListAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-final class MaterialSpinnerAdapterWrapper extends MaterialSpinnerBaseAdapter {
+public class MaterialSpinnerAdapterWrapper extends MaterialSpinnerBaseAdapter {
 
   private final ListAdapter listAdapter;
 
